@@ -1,7 +1,7 @@
 //Grab couple things we need
 const section = document.querySelector('section');
 let playerLivesCount = document.querySelector('span');
-let playerLives = 6;
+let playerLives = 7;
 
 //Link text 
 playerLivesCount.textContent = playerLives;
@@ -90,7 +90,10 @@ const checkCards = (e) => {
             }
     }
     if(toggleCard.length === 16){
-        restart("You Win!")
+        setTimeout(() => {
+            restart("You Win!")
+
+        }, 1000)
     }
     
 }
@@ -112,9 +115,9 @@ const restart = (text) => {
         }, 1000)
 
     });
-    playerLives = 6;
+    playerLives = 7;
     playerLivesCount.textContent = playerLives;
-    setTimeout(() => window.alert(text), 100)
+    setTimeout(() => window.alert(text), 1000)
 }
 
 cardGenerator()
