@@ -1,10 +1,13 @@
 //Grab couple things we need
 const section = document.querySelector('section');
-let playerLivesCount = document.querySelector('span');
+let playerLivesCount = document.querySelector('.playerLivesCount');
+let playerScore = document.querySelector('.playerScore')
 let playerLives = 7;
+let playerScoreNum = 0;
 
 //Link text 
 playerLivesCount.textContent = playerLives;
+playerScore.textContent = playerScoreNum; 
 
 //Generate the data
 const getData = () => [
@@ -72,6 +75,8 @@ const checkCards = (e) => {
             flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute("name")
             ) {
                 console.log("match")
+                playerScoreNum += 100;
+                playerScore.textContent = playerScoreNum;
                 flippedCards.forEach(card => {
                     card.classList.remove('flipped');
                     card.style.pointerEvents = 'none'
@@ -117,6 +122,8 @@ const restart = (text) => {
     });
     playerLives = 7;
     playerLivesCount.textContent = playerLives;
+    playerScoreNum = 00;
+    playerScore.textContent = playerScoreNum;
     setTimeout(() => window.alert(text), 1000)
 }
 
